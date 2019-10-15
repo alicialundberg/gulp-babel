@@ -1,5 +1,6 @@
-# Gulp + SASS
-###### Moment 3 - DT173G
+# Gulp + Babel
+###### Moment 4 - DT173G
+#### Gulp project with Babel to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.
 ## Systemet
 Med hjälp av en array som jag har döpt till “files”,har jag sparat samtliga sökvägar till filerna och dess mappar i olika objekt. Dessa objekt kan jag sedan enkelt nå med hjälp av funktionernas anrop, och behöver alltså inte uppge varje sökväg i alla funktioner. 
 Varje sökväg pekar mot src-katalogen, där alla filer som redigeras i projektet finns. 

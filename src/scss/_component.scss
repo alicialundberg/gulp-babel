@@ -1,0 +1,238 @@
+@import "mixins";
+
+$nav-bg: #e6e6fa;
+$nav-fontcolor: #000;
+$box-1: #ed1164; 
+$box-2: #86328c;
+$submit-button: #ff5722;
+$reset-button: #ff0000;
+
+/* Responsive slide-menu */
+.nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $nav-bg;
+    opacity: .9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.7s;
+  
+    a {
+      display: block;
+      padding: 20px 30px;
+      font-size: 25px;
+      text-decoration: none;
+      color: $nav-fontcolor;
+  
+      &:hover {
+        color: lighten($nav-fontcolor, 50%);
+        font-size: 27px;
+        transition: 0.4s;
+      }
+    }
+  }
+  
+  #hamburger {
+    color: white;
+    font-size: 50px;
+    padding-left: 2%;
+    padding-top: 1%;
+  }
+  
+  .nav .close {
+    position: absolute;
+    top: 0;
+    right: 22px;
+    margin-left: 50px;
+    font: 30px;
+  }
+
+  /* Interactive boxes @index.html */
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include breakpoint(sm) {
+      justify-content: center;
+      align-items: center;
+    }
+    
+  
+    .box {
+      position: relative;
+      width: 350px;
+      padding: 40px;
+      background: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+      margin: 20px;
+      box-sizing: border-box;
+      overflow: hidden;
+      }
+
+      .icon {
+        position: relative;
+        width: 80px;
+        height: 80px;
+        color: white;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        border-radius: 50%;
+        font-size: 30px;
+        font-weight: 700;
+        transition: 0.5s;
+      }
+    
+
+    &:nth-child(1) .box {
+      .icon {
+        box-shadow: 0 0 0 0 $box-1;
+        background: $box-1;
+      }
+
+      &:hover .icon {
+        box-shadow: 0 0 0 400px $box-1;
+      }
+    }
+
+    &:nth-child(2) {
+      .box .icon {
+        box-shadow: 0 0 0 0 $box-2;
+        background: $box-2;
+      }
+
+      &:hover .box .icon {
+        box-shadow: 0 0 0 400px $box-2;
+      }
+    }
+
+    .box {
+      .content {
+        position: relative;
+        z-index: 1;
+        transition: 0.5s;
+        text-align: center;
+      }
+  
+      &:hover .content {
+        color: white;
+      }
+  
+      .content {
+        h3 {
+          font-size: 20px;
+          margin: 10px 0;
+          padding: 0;
+          text-align: center;
+        }
+  
+        ul {
+          list-style-type: none;
+          font-weight: 700;
+        }
+  
+        a {
+          display: inline-block;
+          padding: 10px 20px;
+          background: white;
+          border-radius: 4px;
+          text-decoration: none;
+          color: #000;
+          font-weight: 500;
+          margin-top: 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  };
+
+  /* Contact form @contact.html */
+  .contact-container {
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 50, 0.5), rgba(0, 0, 50, 0.5)), url(/images/email.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+  }
+  
+  .contact-title {
+    padding-top: 100px;
+    color: white;
+  
+    h1 {
+      line-height: 10px;
+      margin-bottom: 10px;
+    }
+  
+    h3 {
+      margin-top: 2%;
+    }
+  }
+  
+  .contact-form {
+    padding-top: 3%;
+    padding-bottom: 10%;
+  
+    .status {
+      color: white;
+      font-size: 20px;
+    }
+  }
+  
+  input {
+    &[type=text] {
+      height: 45px;
+      width: 30%;
+      font-size: 23px;
+      margin-bottom: 1%;
+      @include breakpoint(phone) {
+        width: 60%;
+      }
+    }
+  
+    [type=textarea] {
+      width: 30% !important;
+      resize: none;
+      @include breakpoint(phone) {
+        width: 60%;
+      }
+    }
+  }
+
+  /* Standard button */
+  .btn {
+    border-color: transparent;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    margin-top: 20px;
+    width: 10%;
+  }
+
+  .contact-form .submit {
+    @extend .btn;
+    background-color: $submit-button;
+  
+    &:hover {
+      background-color: darken($submit-button, 20%);
+      cursor: pointer;
+    }
+  }
+
+  .contact-form .reset {
+    @extend .btn;
+    background-color: $reset-button;
+   
+    &:hover {
+      background-color: darken($reset-button, 20%);
+      cursor: pointer;
+    }
+  }

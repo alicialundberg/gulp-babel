@@ -19,9 +19,8 @@ const files = {
   /* Task: Get all HTML-files och push to pub */
   function copyHTML() {
     return src(files.htmlPath)
-      .pipe(dest('pub')
-      .pipe(browserSync.stream())
-    );
+      .pipe(dest('pub'))
+      .pipe(browserSync.stream());
   }
 
   /* Task: Get all SASS-files and convert to CSS, then push to pub */
@@ -43,18 +42,16 @@ const files = {
       }))
       .pipe(concat('main.js'))
       .pipe(uglifyjs())
-      .pipe(dest('pub/js')
-      .pipe(browserSync.stream())
-    );
+      .pipe(dest('pub/js'))
+      .pipe(browserSync.stream());
   }
 
   /* Task: Get all images and minify them, then push tp pub */
   function imageTask() {
     return src(files.imagePath)
       .pipe(imagemin())
-      .pipe(dest('pub/images')
-      .pipe(browserSync.stream())
-    );
+      .pipe(dest('pub/images'))
+      .pipe(browserSync.stream());
   }
 
   /* Task: Watcher and reload the website if files changes */
